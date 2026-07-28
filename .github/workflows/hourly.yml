@@ -1,0 +1,78 @@
+name: Hourly Monitor
+
+on:
+  schedule:
+    # GitHub cron is UTC. The watcher itself uses Europe/Madrid for browser locale/timezone.
+    - cron: "17 * * * *"
+  workflow_dispatch:
+    inputs:
+      send_test_alert:
+        description: "Send only a Telegram connection test"
+        required: false
+        default: false
+        type: boolean
+      dry_run:
+        description: "Print alerts in logs instead of sending Telegram messages"
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pablo-hourly-monitor
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    container:
+      image: mcr.microsoft.com/playwright/python:v1.61.0-noble
+      options: --ipc=host
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run parser tests
+        run: pytest -q
+
+      - name: Run watcher
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          SEND_TEST_ALERT: ${{ inputs.send_test_alert && '1' || '0' }}
+          DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
+        run: python watcher.py
+
+      - name: Upload diagnostics when the run fails
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: debug-${{ github.run_id }}
+          path: debug/
+          if-no-files-found: ignore
+          retention-days: 7
+
+      - name: Persist seen listings and prices
+        if: success() && inputs.send_test_alert != true
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git config user.name "pablo-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/state.json
+          if git diff --cached --quiet; then
+            echo "No state changes to commit."
+          else
+            git commit -m "Update Wallapop watch state [skip ci]"
+            git push
+          fi

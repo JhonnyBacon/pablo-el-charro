@@ -1,0 +1,979 @@
+{
+  "initialized": true,
+  "last_run": "2026-07-28T16:21:12.359845+00:00",
+  "price_recheck_cursor": 0,
+  "run_count": 1,
+  "samples": [
+    {
+      "brand": "callaghan",
+      "item_id": "1283731625",
+      "key": "1283731625:5.00",
+      "price": 5.0,
+      "seen_at": "2026-07-28T16:15:11.673717+00:00",
+      "size": 40
+    },
+    {
+      "brand": "frye",
+      "item_id": "1185750222",
+      "key": "1185750222:7.50",
+      "price": 7.5,
+      "seen_at": "2026-07-28T16:15:18.515195+00:00",
+      "size": 41
+    },
+    {
+      "brand": "montana",
+      "item_id": "1274769120",
+      "key": "1274769120:10.00",
+      "price": 10.0,
+      "seen_at": "2026-07-28T16:15:25.185855+00:00",
+      "size": 40
+    },
+    {
+      "brand": "harley-davidson",
+      "item_id": "1279920987",
+      "key": "1279920987:11.00",
+      "price": 11.0,
+      "seen_at": "2026-07-28T16:15:31.910688+00:00",
+      "size": 40
+    },
+    {
+      "brand": "montana",
+      "item_id": "1202319140",
+      "key": "1202319140:13.00",
+      "price": 13.0,
+      "seen_at": "2026-07-28T16:15:38.418347+00:00",
+      "size": 44
+    },
+    {
+      "brand": "callaghan",
+      "item_id": "1285121277",
+      "key": "1285121277:15.00",
+      "price": 15.0,
+      "seen_at": "2026-07-28T16:15:45.004022+00:00",
+      "size": 41
+    },
+    {
+      "brand": "montana",
+      "item_id": "1258024285",
+      "key": "1258024285:20.00",
+      "price": 20.0,
+      "seen_at": "2026-07-28T16:15:51.856211+00:00",
+      "size": 42
+    },
+    {
+      "brand": "johnny bulls",
+      "item_id": "1227164717",
+      "key": "1227164717:20.00",
+      "price": 20.0,
+      "seen_at": "2026-07-28T16:15:58.351524+00:00",
+      "size": 40
+    },
+    {
+      "brand": "joe sanchez",
+      "item_id": "1278475240",
+      "key": "1278475240:25.00",
+      "price": 25.0,
+      "seen_at": "2026-07-28T16:16:07.343330+00:00",
+      "size": 40
+    },
+    {
+      "brand": "sendra",
+      "item_id": "1274885800",
+      "key": "1274885800:25.00",
+      "price": 25.0,
+      "seen_at": "2026-07-28T16:16:14.059065+00:00",
+      "size": 43
+    },
+    {
+      "brand": "callaghan",
+      "item_id": "1280290104",
+      "key": "1280290104:25.00",
+      "price": 25.0,
+      "seen_at": "2026-07-28T16:16:20.701523+00:00",
+      "size": 42
+    },
+    {
+      "brand": "montana",
+      "item_id": "1280309895",
+      "key": "1280309895:25.00",
+      "price": 25.0,
+      "seen_at": "2026-07-28T16:16:32.730034+00:00",
+      "size": 40
+    },
+    {
+      "brand": "callaghan",
+      "item_id": "1279164164",
+      "key": "1279164164:30.00",
+      "price": 30.0,
+      "seen_at": "2026-07-28T16:16:39.239474+00:00",
+      "size": 42
+    },
+    {
+      "brand": "valverde del camino",
+      "item_id": "1285055885",
+      "key": "1285055885:30.00",
+      "price": 30.0,
+      "seen_at": "2026-07-28T16:16:46.033479+00:00",
+      "size": 43
+    },
+    {
+      "brand": "tony mora",
+      "item_id": "1253815880",
+      "key": "1253815880:30.00",
+      "price": 30.0,
+      "seen_at": "2026-07-28T16:16:52.641633+00:00",
+      "size": 41
+    },
+    {
+      "brand": "valverde del camino",
+      "item_id": "1280256016",
+      "key": "1280256016:35.00",
+      "price": 35.0,
+      "seen_at": "2026-07-28T16:16:59.080902+00:00",
+      "size": 41
+    },
+    {
+      "brand": "joe sanchez",
+      "item_id": "1284097166",
+      "key": "1284097166:40.00",
+      "price": 40.0,
+      "seen_at": "2026-07-28T16:17:05.470590+00:00",
+      "size": 43
+    },
+    {
+      "brand": "valverde del camino",
+      "item_id": "1263140958",
+      "key": "1263140958:40.00",
+      "price": 40.0,
+      "seen_at": "2026-07-28T16:17:12.177140+00:00",
+      "size": 41
+    },
+    {
+      "brand": "valverde del camino",
+      "item_id": "949202044",
+      "key": "949202044:40.00",
+      "price": 40.0,
+      "seen_at": "2026-07-28T16:17:18.925307+00:00",
+      "size": 40
+    },
+    {
+      "brand": "montana",
+      "item_id": "741472915",
+      "key": "741472915:45.00",
+      "price": 45.0,
+      "seen_at": "2026-07-28T16:17:25.702351+00:00",
+      "size": 44
+    },
+    {
+      "brand": "montana",
+      "item_id": "1223326453",
+      "key": "1223326453:45.00",
+      "price": 45.0,
+      "seen_at": "2026-07-28T16:17:32.494787+00:00",
+      "size": 43
+    },
+    {
+      "brand": "valverde del camino",
+      "item_id": "1250082516",
+      "key": "1250082516:50.00",
+      "price": 50.0,
+      "seen_at": "2026-07-28T16:17:39.281445+00:00",
+      "size": 43
+    },
+    {
+      "brand": "johnny bulls",
+      "item_id": "1245910055",
+      "key": "1245910055:50.00",
+      "price": 50.0,
+      "seen_at": "2026-07-28T16:17:46.056439+00:00",
+      "size": 42
+    },
+    {
+      "brand": "valverde del camino",
+      "item_id": "1285692709",
+      "key": "1285692709:50.00",
+      "price": 50.0,
+      "seen_at": "2026-07-28T16:17:52.688043+00:00",
+      "size": 42
+    },
+    {
+      "brand": "sendra",
+      "item_id": "1281026352",
+      "key": "1281026352:50.00",
+      "price": 50.0,
+      "seen_at": "2026-07-28T16:17:59.426810+00:00",
+      "size": 41
+    },
+    {
+      "brand": "montana",
+      "item_id": "1272556887",
+      "key": "1272556887:50.00",
+      "price": 50.0,
+      "seen_at": "2026-07-28T16:18:05.774726+00:00",
+      "size": 40
+    },
+    {
+      "brand": "montana",
+      "item_id": "177226477",
+      "key": "177226477:53.00",
+      "price": 53.0,
+      "seen_at": "2026-07-28T16:18:12.436333+00:00",
+      "size": 41
+    },
+    {
+      "brand": "joe sanchez",
+      "item_id": "1259959219",
+      "key": "1259959219:57.00",
+      "price": 57.0,
+      "seen_at": "2026-07-28T16:18:19.385573+00:00",
+      "size": 40
+    },
+    {
+      "brand": "montana",
+      "item_id": "792530828",
+      "key": "792530828:60.00",
+      "price": 60.0,
+      "seen_at": "2026-07-28T16:18:26.145266+00:00",
+      "size": 40
+    },
+    {
+      "brand": "termans",
+      "item_id": "1284111552",
+      "key": "1284111552:65.00",
+      "price": 65.0,
+      "seen_at": "2026-07-28T16:18:33.020207+00:00",
+      "size": 43
+    },
+    {
+      "brand": "harley-davidson",
+      "item_id": "1220831791",
+      "key": "1220831791:70.00",
+      "price": 70.0,
+      "seen_at": "2026-07-28T16:18:39.842779+00:00",
+      "size": 43
+    },
+    {
+      "brand": "montana",
+      "item_id": "1285407796",
+      "key": "1285407796:75.00",
+      "price": 75.0,
+      "seen_at": "2026-07-28T16:18:49.075031+00:00",
+      "size": 42
+    },
+    {
+      "brand": "harley-davidson",
+      "item_id": "1284058800",
+      "key": "1284058800:75.00",
+      "price": 75.0,
+      "seen_at": "2026-07-28T16:18:55.768412+00:00",
+      "size": 43
+    },
+    {
+      "brand": "new rock",
+      "item_id": "709866301",
+      "key": "709866301:85.00",
+      "price": 85.0,
+      "seen_at": "2026-07-28T16:19:05.007832+00:00",
+      "size": 40
+    },
+    {
+      "brand": "marlboro",
+      "item_id": "1120467366",
+      "key": "1120467366:90.00",
+      "price": 90.0,
+      "seen_at": "2026-07-28T16:19:11.731718+00:00",
+      "size": 41
+    },
+    {
+      "brand": "san diego boots",
+      "item_id": "1256297889",
+      "key": "1256297889:90.00",
+      "price": 90.0,
+      "seen_at": "2026-07-28T16:19:19.553647+00:00",
+      "size": 43
+    },
+    {
+      "brand": "montana",
+      "item_id": "1262247716",
+      "key": "1262247716:94.00",
+      "price": 94.0,
+      "seen_at": "2026-07-28T16:19:28.957828+00:00",
+      "size": 41
+    },
+    {
+      "brand": "valverde del camino",
+      "item_id": "1257200690",
+      "key": "1257200690:100.00",
+      "price": 100.0,
+      "seen_at": "2026-07-28T16:19:35.903709+00:00",
+      "size": 40
+    },
+    {
+      "brand": "sendra",
+      "item_id": "1285498037",
+      "key": "1285498037:100.00",
+      "price": 100.0,
+      "seen_at": "2026-07-28T16:19:42.545753+00:00",
+      "size": 40
+    },
+    {
+      "brand": "montana",
+      "item_id": "954022507",
+      "key": "954022507:100.00",
+      "price": 100.0,
+      "seen_at": "2026-07-28T16:19:49.395734+00:00",
+      "size": 43
+    },
+    {
+      "brand": "tony mora",
+      "item_id": "799908353",
+      "key": "799908353:100.00",
+      "price": 100.0,
+      "seen_at": "2026-07-28T16:19:58.537633+00:00",
+      "size": 43
+    },
+    {
+      "brand": "harley-davidson",
+      "item_id": "1283690274",
+      "key": "1283690274:110.00",
+      "price": 110.0,
+      "seen_at": "2026-07-28T16:20:05.058867+00:00",
+      "size": 42
+    },
+    {
+      "brand": "marlboro",
+      "item_id": "1106897632",
+      "key": "1106897632:115.00",
+      "price": 115.0,
+      "seen_at": "2026-07-28T16:20:11.883329+00:00",
+      "size": 40
+    },
+    {
+      "brand": "new rock",
+      "item_id": "1283247779",
+      "key": "1283247779:120.00",
+      "price": 120.0,
+      "seen_at": "2026-07-28T16:20:18.287587+00:00",
+      "size": 44
+    },
+    {
+      "brand": "new rock",
+      "item_id": "1277845265",
+      "key": "1277845265:129.00",
+      "price": 129.0,
+      "seen_at": "2026-07-28T16:20:25.004251+00:00",
+      "size": 44
+    },
+    {
+      "brand": "valverde del camino",
+      "item_id": "1084342042",
+      "key": "1084342042:140.00",
+      "price": 140.0,
+      "seen_at": "2026-07-28T16:20:31.838052+00:00",
+      "size": 44
+    },
+    {
+      "brand": "harley-davidson",
+      "item_id": "1282120491",
+      "key": "1282120491:140.00",
+      "price": 140.0,
+      "seen_at": "2026-07-28T16:20:38.672166+00:00",
+      "size": 42
+    },
+    {
+      "brand": "valverde del camino",
+      "item_id": "1213442654",
+      "key": "1213442654:143.00",
+      "price": 143.0,
+      "seen_at": "2026-07-28T16:20:45.425278+00:00",
+      "size": 40
+    },
+    {
+      "brand": "montana",
+      "item_id": "1273954433",
+      "key": "1273954433:150.00",
+      "price": 150.0,
+      "seen_at": "2026-07-28T16:20:51.916999+00:00",
+      "size": 42
+    },
+    {
+      "brand": "new rock",
+      "item_id": "1283988572",
+      "key": "1283988572:150.00",
+      "price": 150.0,
+      "seen_at": "2026-07-28T16:20:59.130856+00:00",
+      "size": 41
+    },
+    {
+      "brand": "harley-davidson",
+      "item_id": "1279040483",
+      "key": "1279040483:180.00",
+      "price": 180.0,
+      "seen_at": "2026-07-28T16:21:11.136754+00:00",
+      "size": 45
+    }
+  ],
+  "seen": {
+    "1084342042": {
+      "brand": "valverde del camino",
+      "first_seen": "2026-07-28T16:20:31.838076+00:00",
+      "last_listing_age_hours": 720.0,
+      "last_seen": "2026-07-28T16:20:31.838076+00:00",
+      "price": 140.0,
+      "seller_active_hours": null,
+      "size": 44,
+      "title": "Botas tejanas Marlboro Classic para hombre",
+      "url": "https://es.wallapop.com/item/stivali-texani-marlboro-classic-uomo-1084342042"
+    },
+    "1106897632": {
+      "brand": "marlboro",
+      "first_seen": "2026-07-28T16:20:11.883360+00:00",
+      "last_listing_age_hours": null,
+      "last_seen": "2026-07-28T16:20:11.883360+00:00",
+      "price": 115.0,
+      "seller_active_hours": null,
+      "size": 40,
+      "title": "Botas cowboy t.40 Marlborough",
+      "url": "https://es.wallapop.com/item/botas-cowboy-t-40-marlborough-1106897632"
+    },
+    "1120467366": {
+      "brand": "marlboro",
+      "first_seen": "2026-07-28T16:19:11.731733+00:00",
+      "last_listing_age_hours": 720.0,
+      "last_seen": "2026-07-28T16:19:11.731733+00:00",
+      "price": 90.0,
+      "seller_active_hours": null,
+      "size": 41,
+      "title": "Botas Marlboro Classic 41",
+      "url": "https://es.wallapop.com/item/stivali-marlboro-classic-41-1120467366"
+    },
+    "1185750222": {
+      "brand": "frye",
+      "first_seen": "2026-07-28T16:15:18.515247+00:00",
+      "last_listing_age_hours": 6.0,
+      "last_seen": "2026-07-28T16:15:18.515247+00:00",
+      "price": 7.5,
+      "seller_active_hours": null,
+      "size": 41,
+      "title": "Botines Frye Piel Marrón Talla 41, piel rustica.",
+      "url": "https://es.wallapop.com/item/botines-frye-piel-marron-talla-41-piel-rustica-1185750222"
+    },
+    "1202319140": {
+      "brand": "montana",
+      "first_seen": "2026-07-28T16:15:38.418369+00:00",
+      "last_listing_age_hours": null,
+      "last_seen": "2026-07-28T16:15:38.418369+00:00",
+      "price": 13.0,
+      "seller_active_hours": null,
+      "size": 44,
+      "title": "Botas de piel Timothy tacón ancho suela goma",
+      "url": "https://es.wallapop.com/item/botas-de-piel-timothy-tacon-ancho-suela-goma-1202319140"
+    },
+    "1213442654": {
+      "brand": "valverde del camino",
+      "first_seen": "2026-07-28T16:20:45.425290+00:00",
+      "last_listing_age_hours": 336.0,
+      "last_seen": "2026-07-28T16:20:45.425290+00:00",
+      "price": 143.0,
+      "seller_active_hours": null,
+      "size": 40,
+      "title": "Botas Toni Mora Talla 40 Unisex Marrón",
+      "url": "https://es.wallapop.com/item/botas-toni-mora-talla-40-unisex-marron-1213442654"
+    },
+    "1220831791": {
+      "brand": "harley-davidson",
+      "first_seen": "2026-07-28T16:18:39.842794+00:00",
+      "last_listing_age_hours": 168.0,
+      "last_seen": "2026-07-28T16:18:39.842794+00:00",
+      "price": 70.0,
+      "seller_active_hours": null,
+      "size": 43,
+      "title": "Botas Cowboy San Diego Marrones",
+      "url": "https://es.wallapop.com/item/botas-cowboy-san-diego-marrones-1220831791"
+    },
+    "1223326453": {
+      "brand": "montana",
+      "first_seen": "2026-07-28T16:17:32.494821+00:00",
+      "last_listing_age_hours": null,
+      "last_seen": "2026-07-28T16:17:32.494821+00:00",
+      "price": 45.0,
+      "seller_active_hours": null,
+      "size": 43,
+      "title": "Botas Cowgirl Durango Talla 43.5",
+      "url": "https://es.wallapop.com/item/botas-cowgirl-durango-talla-43-5-1223326453"
+    },
+    "1227164717": {
+      "brand": "johnny bulls",
+      "first_seen": "2026-07-28T16:15:58.351538+00:00",
+      "last_listing_age_hours": 168.0,
+      "last_seen": "2026-07-28T16:15:58.351538+00:00",
+      "price": 20.0,
+      "seller_active_hours": null,
+      "size": 40,
+      "title": "Botín Johnny Bulls Negro Talla 40",
+      "url": "https://es.wallapop.com/item/botin-johnny-bulls-negro-talla-40-1227164717"
+    },
+    "1245910055": {
+      "brand": "johnny bulls",
+      "first_seen": "2026-07-28T16:17:46.056480+00:00",
+      "last_listing_age_hours": null,
+      "last_seen": "2026-07-28T16:17:46.056480+00:00",
+      "price": 50.0,
+      "seller_active_hours": null,
+      "size": 42,
+      "title": "Botas moteras 42 cuero Johnny Bulls",
+      "url": "https://es.wallapop.com/item/botas-moteras-cuero-negro-1245910055"
+    },
+    "1250082516": {
+      "brand": "valverde del camino",
+      "first_seen": "2026-07-28T16:17:39.281467+00:00",
+      "last_listing_age_hours": null,
+      "last_seen": "2026-07-28T16:17:39.281467+00:00",
+      "price": 50.0,
+      "seller_active_hours": null,
+      "size": 43,
+      "title": "Botas Tony Mora 43 Negras Camperas",
+      "url": "https://es.wallapop.com/item/botas-tony-mora-43-negras-camperas-1250082516"
+    },
+    "1253815880": {
+      "brand": "tony mora",
+      "first_seen": "2026-07-28T16:16:52.641664+00:00",
+      "last_listing_age_hours": null,
+      "last_seen": "2026-07-28T16:16:52.641664+00:00",
+      "price": 30.0,
+      "seller_active_hours": null,
+      "size": 41,
+      "title": "Botas Durango Mujer Talla 41 Beige/Marrón",
+      "url": "https://es.wallapop.com/item/botas-durango-mujer-talla-41-beige-marron-1253815880"
+    },
+    "1256297889": {
+      "brand": "san diego boots",
+      "first_seen": "2026-07-28T16:19:19.553669+00:00",
+      "last_listing_age_hours": 720.0,
+      "last_seen": "2026-07-28T16:19:19.553669+00:00",
+      "price": 90.0,
+      "seller_active_hours": null,
+      "size": 43,
+      "title": "Botas Cowboy San Diego Boots Talla 43",
+      "url": "https://es.wallapop.com/item/botas-cowboy-san-diego-boots-talla-43-1256297889"
+    },
+    "1257200690": {
+      "brand": "valverde del camino",
+      "first_seen": "2026-07-28T16:19:35.903730+00:00",
+      "last_listing_age_hours": 720.0,
+      "last_seen": "2026-07-28T16:19:35.903730+00:00",
+      "price": 100.0,
+      "seller_active_hours": null,
+      "size": 40,
+      "title": "Botas Tony Mora Piel Talla 40",
+      "url": "https://es.wallapop.com/item/botas-tony-mora-piel-talla-40-1257200690"
+    },
+    "1258024285": {
+      "brand": "montana",
+      "first_seen": "2026-07-28T16:15:51.856233+00:00",
+      "last_listing_age_hours": 720.0,
+      "last_seen": "2026-07-28T16:15:51.856233+00:00",
+      "price": 20.0,
+      "seller_active_hours": null,
+      "size": 42,
+      "title": "Botas de trabajo Justin talla 42.5 Marrón",
+      "url": "https://es.wallapop.com/item/botas-de-trabajo-justin-talla-42-5-marron-1258024285"
+    },
+    "1259959219": {
+      "brand": "joe sanchez",
+      "first_seen": "2026-07-28T16:18:19.385596+00:00",
+      "last_listing_age_hours": 720.0,
+      "last_seen": "2026-07-28T16:18:19.385596+00:00",
+      "price": 57.0,
+      "seller_active_hours": null,
+      "size": 40,
+      "title": "Botas Old Gringo Piel Talla 40",
+      "url": "https://es.wallapop.com/item/botas-old-gringo-piel-talla-40-1259959219"
+    },
+    "1262247716": {
+      "brand": "montana",
+      "first_seen": "2026-07-28T16:19:28.957854+00:00",
+      "last_listing_age_hours": 336.0,
+      "last_seen": "2026-07-28T16:19:28.957854+00:00",
+      "price": 94.0,
+      "seller_active_hours": null,
+      "size": 41,
+      "title": "Botas de montaña Aigle",
+      "url": "https://es.wallapop.com/item/botas-de-montana-aigle-1262247716"
+    },
+    "1263140958": {
+      "brand": "valverde del camino",
+      "first_seen": "2026-07-28T16:17:12.177168+00:00",
+      "last_listing_age_hours": 6.0,
+      "last_seen": "2026-07-28T16:17:12.177168+00:00",
+      "price": 40.0,
+      "seller_active_hours": null,
+      "size": 41,
+      "title": "Botas Cowboy José Sánchez Marrones",
+      "url": "https://es.wallapop.com/item/botas-cowboy-jose-sanchez-marrones-1263140958"
+    },
+    "1272556887": {
+      "brand": "montana",
+      "first_seen": "2026-07-28T16:18:05.774755+00:00",
+      "last_listing_age_hours": null,
+      "last_seen": "2026-07-28T16:18:05.774755+00:00",
+      "price": 50.0,
+      "seller_active_hours": null,
+      "size": 40,
+      "title": "Botas Frye Marrones Mujer Talla 40",
+      "url": "https://es.wallapop.com/item/botas-frye-marrones-mujer-talla-40-1272556887"
+    },
+    "1273954433": {
+      "brand": "montana",
+      "first_seen": "2026-07-28T16:20:51.917029+00:00",
+      "last_listing_age_hours": null,
+      "last_seen": "2026-07-28T16:20:51.917029+00:00",
+      "price": 150.0,
+      "seller_active_hours": null,
+      "size": 42,
+      "title": "Botas Senda Negras Piel Talla 42",
+      "url": "https://es.wallapop.com/item/botas-senda-negras-piel-talla-42-1273954433"
+    },
+    "1274769120": {
+      "brand": "montana",
+      "first_seen": "2026-07-28T16:15:25.185877+00:00",
+      "last_listing_age_hours": null,
+      "last_seen": "2026-07-28T16:15:25.185877+00:00",
+      "price": 10.0,
+      "seller_active_hours": null,
+      "size": 40,
+      "title": "Patines de bota 4 ruedas Hannah Montana número 40",
+      "url": "https://es.wallapop.com/item/patines-de-bota-4-ruedas-hannah-montana-numero-40-1274769120"
+    },
+    "1274885800": {
+      "brand": "sendra",
+      "first_seen": "2026-07-28T16:16:14.059096+00:00",
+      "last_listing_age_hours": null,
+      "last_seen": "2026-07-28T16:16:14.059096+00:00",
+      "price": 25.0,
+      "seller_active_hours": null,
+      "size": 43,
+      "title": "Botas Senda Caballero Talla 43",
+      "url": "https://es.wallapop.com/item/botas-senda-caballero-talla-43-1274885800"
+    },
+    "1277845265": {
+      "brand": "new rock",
+      "first_seen": "2026-07-28T16:20:25.004263+00:00",
+      "last_listing_age_hours": 720.0,
+      "last_seen": "2026-07-28T16:20:25.004263+00:00",
+      "price": 129.0,
+      "seller_active_hours": null,
+      "size": 44,
+      "title": "Sandra bikers boot talla44",
+      "url": "https://es.wallapop.com/item/sandra-bikers-boot-talla44-1277845265"
+    },
+    "1278475240": {
+      "brand": "joe sanchez",
+      "first_seen": "2026-07-28T16:16:07.343371+00:00",
+      "last_listing_age_hours": 720.0,
+      "last_seen": "2026-07-28T16:16:07.343371+00:00",
+      "price": 25.0,
+      "seller_active_hours": null,
+      "size": 40,
+      "title": "Botas Vaqueras Justin Negras",
+      "url": "https://es.wallapop.com/item/botas-vaqueras-justin-negras-1278475240"
+    },
+    "1279040483": {
+      "brand": "harley-davidson",
+      "first_seen": "2026-07-28T16:21:11.136775+00:00",
+      "last_listing_age_hours": 720.0,
+      "last_seen": "2026-07-28T16:21:11.136775+00:00",
+      "price": 180.0,
+      "seller_active_hours": null,
+      "size": 45,
+      "title": "Botas Harley Davidson Negras Tamaño 45",
+      "url": "https://es.wallapop.com/item/botas-harley-davidson-pretas-tamanho-45-1279040483"
+    },
+    "1279164164": {
+      "brand": "callaghan",
+      "first_seen": "2026-07-28T16:16:39.239492+00:00",
+      "last_listing_age_hours": 720.0,
+      "last_seen": "2026-07-28T16:16:39.239492+00:00",
+      "price": 30.0,
+      "seller_active_hours": null,
+      "size": 42,
+      "title": "Botas Callaghan Marrones (42)",
+      "url": "https://es.wallapop.com/item/botas-callaghan-marrones-1279164164"
+    },
+    "1279920987": {
+      "brand": "harley-davidson",
+      "first_seen": "2026-07-28T16:15:31.910716+00:00",
+      "last_listing_age_hours": 24.0,
+      "last_seen": "2026-07-28T16:15:31.910716+00:00",
+      "price": 11.0,
+      "seller_active_hours": null,
+      "size": 40,
+      "title": "Botas Harley Davidson Mujer Talla 40 Negras",
+      "url": "https://es.wallapop.com/item/botas-harley-davidson-mujer-talla-40-negras-1279920987"
+    },
+    "1280256016": {
+      "brand": "valverde del camino",
+      "first_seen": "2026-07-28T16:16:59.080917+00:00",
+      "last_listing_age_hours": 720.0,
+      "last_seen": "2026-07-28T16:16:59.080917+00:00",
+      "price": 35.0,
+      "seller_active_hours": null,
+      "size": 41,
+      "title": "Botas Tejanas Negras Piel Tony Mora",
+      "url": "https://es.wallapop.com/item/botas-tejanas-negras-piel-tony-mora-1280256016"
+    },
+    "1280290104": {
+      "brand": "callaghan",
+      "first_seen": "2026-07-28T16:16:20.701547+00:00",
+      "last_listing_age_hours": 720.0,
+      "last_seen": "2026-07-28T16:16:20.701547+00:00",
+      "price": 25.0,
+      "seller_active_hours": null,
+      "size": 42,
+      "title": "Botas Callaghan Beige y Marrón Talla 42",
+      "url": "https://es.wallapop.com/item/botas-callaghan-beige-y-marron-talla-42-1280290104"
+    },
+    "1280309895": {
+      "brand": "montana",
+      "first_seen": "2026-07-28T16:16:32.730057+00:00",
+      "last_listing_age_hours": 720.0,
+      "last_seen": "2026-07-28T16:16:32.730057+00:00",
+      "price": 25.0,
+      "seller_active_hours": null,
+      "size": 40,
+      "title": "Botas de cuero negras Bryan Stepwise",
+      "url": "https://es.wallapop.com/item/botas-de-cuero-negras-bryan-stepwise-1280309895"
+    },
+    "1281026352": {
+      "brand": "sendra",
+      "first_seen": "2026-07-28T16:17:59.426834+00:00",
+      "last_listing_age_hours": 168.0,
+      "last_seen": "2026-07-28T16:17:59.426834+00:00",
+      "price": 50.0,
+      "seller_active_hours": null,
+      "size": 41,
+      "title": "Botines Bryan Stepwise Piel Girada Talla 41",
+      "url": "https://es.wallapop.com/item/botines-bryan-stepwise-piel-girada-talla-41-1281026352"
+    },
+    "1282120491": {
+      "brand": "harley-davidson",
+      "first_seen": "2026-07-28T16:20:38.672186+00:00",
+      "last_listing_age_hours": 336.0,
+      "last_seen": "2026-07-28T16:20:38.672186+00:00",
+      "price": 140.0,
+      "seller_active_hours": null,
+      "size": 42,
+      "title": "Botas Harley-Davidson Bullard CE Talla 42",
+      "url": "https://es.wallapop.com/item/botas-harley-davidson-bullard-ce-talla-42-1282120491"
+    },
+    "1283247779": {
+      "brand": "new rock",
+      "first_seen": "2026-07-28T16:20:18.287605+00:00",
+      "last_listing_age_hours": 336.0,
+      "last_seen": "2026-07-28T16:20:18.287605+00:00",
+      "price": 120.0,
+      "seller_active_hours": null,
+      "size": 44,
+      "title": "Botas New Rock Talla 44 Marrón y Plata",
+      "url": "https://es.wallapop.com/item/botas-new-rock-talla-44-marron-y-plata-1283247779"
+    },
+    "1283690274": {
+      "brand": "harley-davidson",
+      "first_seen": "2026-07-28T16:20:05.058887+00:00",
+      "last_listing_age_hours": 336.0,
+      "last_seen": "2026-07-28T16:20:05.058887+00:00",
+      "price": 110.0,
+      "seller_active_hours": null,
+      "size": 42,
+      "title": "Botas Harley-Davidson Barkston Engineer Negras",
+      "url": "https://es.wallapop.com/item/botas-harley-davidson-barkston-engineer-negras-1283690274"
+    },
+    "1283731625": {
+      "brand": "callaghan",
+      "first_seen": "2026-07-28T16:15:11.674700+00:00",
+      "last_listing_age_hours": 336.0,
+      "last_seen": "2026-07-28T16:15:11.674700+00:00",
+      "price": 5.0,
+      "seller_active_hours": null,
+      "size": 40,
+      "title": "Botas Callaghan Talla 40 Negras",
+      "url": "https://es.wallapop.com/item/botas-callaghan-talla-40-negras-1283731625"
+    },
+    "1283988572": {
+      "brand": "new rock",
+      "first_seen": "2026-07-28T16:20:59.130901+00:00",
+      "last_listing_age_hours": 168.0,
+      "last_seen": "2026-07-28T16:20:59.130901+00:00",
+      "price": 150.0,
+      "seller_active_hours": null,
+      "size": 41,
+      "title": "Botas New Rock Biker Hombre Negro/Plata",
+      "url": "https://es.wallapop.com/item/botas-new-rock-biker-hombre-negro-plata-1283988572"
+    },
+    "1284058800": {
+      "brand": "harley-davidson",
+      "first_seen": "2026-07-28T16:18:55.768445+00:00",
+      "last_listing_age_hours": 168.0,
+      "last_seen": "2026-07-28T16:18:55.768445+00:00",
+      "price": 75.0,
+      "seller_active_hours": null,
+      "size": 43,
+      "title": "Botas Harley Davidson Talla 43",
+      "url": "https://es.wallapop.com/item/botas-harley-davidson-talla-43-1284058800"
+    },
+    "1284097166": {
+      "brand": "joe sanchez",
+      "first_seen": "2026-07-28T16:17:05.470618+00:00",
+      "last_listing_age_hours": 168.0,
+      "last_seen": "2026-07-28T16:17:05.470618+00:00",
+      "price": 40.0,
+      "seller_active_hours": null,
+      "size": 43,
+      "title": "Botas Joe Sánchez Talla 43",
+      "url": "https://es.wallapop.com/item/botas-joe-sanchez-talla-43-1284097166"
+    },
+    "1284111552": {
+      "brand": "termans",
+      "first_seen": "2026-07-28T16:18:33.020231+00:00",
+      "last_listing_age_hours": 72.0,
+      "last_seen": "2026-07-28T16:18:33.020231+00:00",
+      "price": 65.0,
+      "seller_active_hours": null,
+      "size": 43,
+      "title": "Botas de moto Dr. Termans negras",
+      "url": "https://es.wallapop.com/item/botas-de-moto-dr-termans-negras-1284111552"
+    },
+    "1285055885": {
+      "brand": "valverde del camino",
+      "first_seen": "2026-07-28T16:16:46.033496+00:00",
+      "last_listing_age_hours": 48.0,
+      "last_seen": "2026-07-28T16:16:46.033496+00:00",
+      "price": 30.0,
+      "seller_active_hours": null,
+      "size": 43,
+      "title": "Botas camperas Valverde del Camino Negras",
+      "url": "https://es.wallapop.com/item/botas-camperas-valverde-del-camino-negras-1285055885"
+    },
+    "1285121277": {
+      "brand": "callaghan",
+      "first_seen": "2026-07-28T16:15:45.004045+00:00",
+      "last_listing_age_hours": 48.0,
+      "last_seen": "2026-07-28T16:15:45.004045+00:00",
+      "price": 15.0,
+      "seller_active_hours": null,
+      "size": 41,
+      "title": "Botas Callaghan Marrones Talla 41",
+      "url": "https://es.wallapop.com/item/botas-callaghan-marrones-talla-41-1285121277"
+    },
+    "1285407796": {
+      "brand": "montana",
+      "first_seen": "2026-07-28T16:18:49.075049+00:00",
+      "last_listing_age_hours": 24.0,
+      "last_seen": "2026-07-28T16:18:49.075049+00:00",
+      "price": 75.0,
+      "seller_active_hours": null,
+      "size": 42,
+      "title": "Botas Sendra Hombre Talla 42 Marrón",
+      "url": "https://es.wallapop.com/item/botas-sendra-hombre-talla-42-marron-1285407796"
+    },
+    "1285498037": {
+      "brand": "sendra",
+      "first_seen": "2026-07-28T16:19:42.545772+00:00",
+      "last_listing_age_hours": 24.0,
+      "last_seen": "2026-07-28T16:19:42.545772+00:00",
+      "price": 100.0,
+      "seller_active_hours": null,
+      "size": 40,
+      "title": "Botines Loblan Hombre Negros",
+      "url": "https://es.wallapop.com/item/botines-loblan-hombre-negros-1285498037"
+    },
+    "1285692709": {
+      "brand": "valverde del camino",
+      "first_seen": "2026-07-28T16:17:52.688076+00:00",
+      "last_listing_age_hours": 7.0,
+      "last_seen": "2026-07-28T16:17:52.688076+00:00",
+      "price": 50.0,
+      "seller_active_hours": null,
+      "size": 42,
+      "title": "Bota Valverde del Camino Talla 42",
+      "url": "https://es.wallapop.com/item/bota-valverde-del-camino-talla-42-1285692709"
+    },
+    "177226477": {
+      "brand": "montana",
+      "first_seen": "2026-07-28T16:18:12.436356+00:00",
+      "last_listing_age_hours": 720.0,
+      "last_seen": "2026-07-28T16:18:12.436356+00:00",
+      "price": 53.0,
+      "seller_active_hours": null,
+      "size": 41,
+      "title": "botas Durango n.41",
+      "url": "https://es.wallapop.com/item/botas-durango-n-41-177226477"
+    },
+    "709866301": {
+      "brand": "new rock",
+      "first_seen": "2026-07-28T16:19:05.007850+00:00",
+      "last_listing_age_hours": 168.0,
+      "last_seen": "2026-07-28T16:19:05.007850+00:00",
+      "price": 85.0,
+      "seller_active_hours": null,
+      "size": 40,
+      "title": "LOBLAN Botas Cuero Negro de CALIDAD Nuevas Talla38",
+      "url": "https://es.wallapop.com/item/loblan-botas-cuero-negro-de-calidad-nuevas-talla38-709866301"
+    },
+    "741472915": {
+      "brand": "montana",
+      "first_seen": "2026-07-28T16:17:25.702371+00:00",
+      "last_listing_age_hours": 168.0,
+      "last_seen": "2026-07-28T16:17:25.702371+00:00",
+      "price": 45.0,
+      "seller_active_hours": null,
+      "size": 44,
+      "title": "BOTAS LOBLAN 44",
+      "url": "https://es.wallapop.com/item/botas-loblan-42-741472915"
+    },
+    "792530828": {
+      "brand": "montana",
+      "first_seen": "2026-07-28T16:18:26.145290+00:00",
+      "last_listing_age_hours": null,
+      "last_seen": "2026-07-28T16:18:26.145290+00:00",
+      "price": 60.0,
+      "seller_active_hours": null,
+      "size": 40,
+      "title": "BOTAS LOBLAN AUTHENTIC",
+      "url": "https://es.wallapop.com/item/botas-loblan-authentic-792530828"
+    },
+    "799908353": {
+      "brand": "tony mora",
+      "first_seen": "2026-07-28T16:19:58.537649+00:00",
+      "last_listing_age_hours": null,
+      "last_seen": "2026-07-28T16:19:58.537649+00:00",
+      "price": 100.0,
+      "seller_active_hours": null,
+      "size": 43,
+      "title": "Botas Tony Lama",
+      "url": "https://es.wallapop.com/item/botas-tony-lama-799908353"
+    },
+    "949202044": {
+      "brand": "valverde del camino",
+      "first_seen": "2026-07-28T16:17:18.925330+00:00",
+      "last_listing_age_hours": 1.0,
+      "last_seen": "2026-07-28T16:17:18.925330+00:00",
+      "price": 40.0,
+      "seller_active_hours": null,
+      "size": 40,
+      "title": "Botas de piel José Sánchez",
+      "url": "https://es.wallapop.com/item/botas-de-piel-jose-sanchez-949202044"
+    },
+    "954022507": {
+      "brand": "montana",
+      "first_seen": "2026-07-28T16:19:49.395768+00:00",
+      "last_listing_age_hours": null,
+      "last_seen": "2026-07-28T16:19:49.395768+00:00",
+      "price": 100.0,
+      "seller_active_hours": null,
+      "size": 43,
+      "title": "Botas Loblan",
+      "url": "https://es.wallapop.com/item/botas-loblan-954022507"
+    }
+  }
+}

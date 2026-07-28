@@ -1,0 +1,185 @@
+settings:
+  country: Spain
+  sizes: [40, 41, 42, 43, 44, 45]
+  highlight_sizes: [43, 44]
+
+  # Strict freshness / seller rules requested by the user.
+  max_listing_age_hours: 72
+  preferred_seller_activity_hours: 168
+  max_seller_inactivity_hours: 720
+  require_seller_activity: true
+
+  # Alert ceilings.
+  ordinary_max_price: 130
+  premium_max_price: 170
+  exotic_max_price: 220
+  min_discount_pct: 35
+
+  # First run creates a baseline without sending dozens of old alerts.
+  bootstrap_silent: true
+
+  # Full mode checks every query each hour. If Wallapop rate-limits the runner,
+  # switch this to false and the long-tail list will rotate over eight hours.
+  run_all_queries_every_hour: true
+  max_results_per_query: 12
+  max_listing_verifications_per_run: 60
+  price_rechecks_per_run: 25
+  search_page_wait_ms: 3500
+  listing_page_wait_ms: 2200
+  polite_delay_ms: 900
+  navigation_timeout_ms: 45000
+  headless: true
+
+  # Wallapop search page. The watcher also has a DOM fallback if the site's JSON changes.
+  search_url_template: "https://es.wallapop.com/app/search?keywords={query}&filters_source=search_box&order_by=newest"
+
+hourly_queries:
+  - Sendra
+  - Sancho
+  - Mayura
+  - Tony Mora
+  - Loblan
+  - Lucchese
+  - Justin Boots
+  - Ariat
+  - botas cowboy
+  - botas camperas
+  - botas western
+  - botas vaqueras
+
+rotating_query_batches:
+  - [Senda botas, Sandra botas, Toni Mora, Marlboro botas, Marboro botas, Joe Sanchez botas, José Sánchez botas]
+  - [San Diego Boots, Montana botas, Callaghan botas, Johnny Bulls, Jonny Bull, Jhonny Bulls, Laredo boots]
+  - [Calero botas, Valverde del Camino botas, Siete Leguas botas, 7 Leguas botas, Dog Jimmy botas, Buffalo botas]
+  - [Termans botas, Dr Termans botas, Timothy botas, Bryan Boots, Go West boots, GoWest boots, Nocona boots, Nacona boots]
+  - [Durango boots, Dan Post boots, Old Gringo boots, Corral boots, Cuadra boots, Los Altos boots]
+  - [Boulet boots, Abilene boots, Double H boots, Harley Davidson boots, Harley-Davidson boots, Frye boots, New Rock boots]
+  - [Tony Lama boots, Old West boots, botas tejanas, botas texanas, botas country, botas rancheras, botas ranchero]
+  - [botas cauboi, botas cawboy, botas coboy, botas de vaqueros, botas roper, botas biker, botas moteras, botas piton, botas serpiente, botas cocodrilo, botas lagarto, botas avestruz]
+
+brand_aliases:
+  sendra: [sendra, senda, sandra]
+  marlboro: [marlboro, marboro]
+  sancho: [sancho]
+  mayura: [mayura]
+  tony mora: [tony mora, toni mora]
+  loblan: [loblan]
+  joe sanchez: [joe sanchez, jose sanchez, josé sanchez, josé sánchez]
+  justin boots: [justin boots, justin]
+  lucchese: [lucchese, luchese]
+  san diego boots: [san diego boots, san diego]
+  montana: [montana]
+  ariat: [ariat]
+  callaghan: [callaghan]
+  johnny bulls: [johnny bulls, johnny bull, jonny bull, jhonny bulls, jhonny bull]
+  laredo: [laredo]
+  calero: [calero]
+  valverde del camino: [valverde del camino]
+  siete leguas: [siete leguas, 7 leguas]
+  dog jimmy: [dog jimmy]
+  buffalo: [buffalo]
+  termans: [termans, dr termans]
+  timothy: [timothy]
+  bryan boots: [bryan boots, bryan]
+  go west: [go west, gowest]
+  nocona: [nocona, nacona]
+  durango: [durango]
+  dan post: [dan post]
+  old gringo: [old gringo]
+  corral: [corral]
+  cuadra: [cuadra]
+  los altos: [los altos]
+  boulet: [boulet]
+  abilene: [abilene]
+  double h: [double h]
+  harley-davidson: [harley-davidson, harley davidson]
+  frye: [frye]
+  new rock: [new rock]
+  tony lama: [tony lama]
+  old west: [old west]
+
+premium_brands:
+  - lucchese
+  - tony lama
+  - old gringo
+  - nocona
+  - dan post
+  - corral
+  - cuadra
+  - los altos
+  - boulet
+  - double h
+  - tony mora
+  - sendra
+  - mayura
+
+excluded_terms:
+  - dr martens
+  - dr. martens
+  - doc martens
+  - doctor martens
+
+boot_terms:
+  - bota
+  - botas
+  - boot
+  - boots
+  - cowboy
+  - cawboy
+  - cauboi
+  - coboy
+  - western
+  - campera
+  - camperas
+  - tejana
+  - tejanas
+  - texana
+  - texanas
+  - vaquera
+  - vaqueras
+  - vaquero
+  - vaqueros
+  - ranchera
+  - rancheras
+  - ranchero
+  - roper
+  - biker
+  - motera
+  - moteras
+  - botin
+  - botines
+  - stivali
+
+# Obvious non-footwear collisions that appear in broad Wallapop searches.
+non_boot_terms:
+  - libro
+  - novela
+  - comic
+  - cómic
+  - cd
+  - dvd
+  - vinilo
+  - figurina
+  - figura
+  - muñeca
+  - muneca
+  - videojuego
+  - pelicula
+  - película
+  - album de cromos
+  - álbum de cromos
+
+exotic_terms:
+  - piton
+  - pitón
+  - python
+  - serpiente
+  - snakeskin
+  - cocodrilo
+  - crocodile
+  - caiman
+  - caimán
+  - lagarto
+  - lizard
+  - avestruz
+  - ostrich

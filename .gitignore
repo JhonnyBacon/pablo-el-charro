@@ -1,0 +1,16 @@
+.venv/
+.env
+__pycache__/
+.pytest_cache/
+debug/*
+!debug/.gitkeep
+*.pyc
+.DS_Store
+
+.env
+.venv/
+__pycache__/
+.pytest_cache/
+debug/
+*.zip
+.DS_Store
