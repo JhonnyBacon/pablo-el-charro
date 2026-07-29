@@ -1,9 +1,6 @@
 name: Hourly Monitor
 
 on:
-  schedule:
-    # GitHub cron is UTC. The watcher itself uses Europe/Madrid for browser locale/timezone.
-    - cron: "23 * * * *"
   workflow_dispatch:
     inputs:
       send_test_alert:
