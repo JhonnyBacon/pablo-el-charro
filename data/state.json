@@ -1,8 +1,8 @@
 {
   "initialized": true,
-  "last_run": "2026-07-30T10:45:11.839579+00:00",
-  "price_recheck_cursor": 1,
-  "run_count": 50,
+  "last_run": "2026-07-30T11:15:05.270683+00:00",
+  "price_recheck_cursor": 26,
+  "run_count": 51,
   "samples": [
     {
       "brand": "callaghan",
