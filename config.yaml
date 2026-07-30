@@ -8,6 +8,7 @@ settings:
   preferred_seller_activity_hours: 168
   max_seller_inactivity_hours: 720
   require_seller_activity: true
+  allow_unverified_exact_brand_bargains: true
 
   # Alert ceilings.
   ordinary_max_price: 130
@@ -21,17 +22,30 @@ settings:
   # Full mode checks every query each hour. If Wallapop rate-limits the runner,
   # switch this to false and the long-tail list will rotate over eight hours.
   run_all_queries_every_hour: true
-  max_results_per_query: 12
-  max_listing_verifications_per_run: 60
+  max_results_per_query: 30
+  max_listing_verifications_per_run: 140
+  brand_query_reserved_verifications: 2
+  generic_query_reserved_verifications: 1
   price_rechecks_per_run: 25
-  search_page_wait_ms: 3500
+  search_page_wait_ms: 3000
+  search_scroll_rounds: 4
+  search_scroll_wait_ms: 600
   listing_page_wait_ms: 2200
   polite_delay_ms: 900
   navigation_timeout_ms: 45000
   headless: true
 
   # Wallapop search page. The watcher also has a DOM fallback if the site's JSON changes.
-  search_url_template: "https://es.wallapop.com/app/search?keywords={query}&filters_source=search_box&order_by=newest"
+  search_url_template: "https://es.wallapop.com/app/search?keywords={query}&filters_source=search_box&order_by={order_by}"
+  brand_search_order_modes: [newest, most_relevance]
+  generic_search_order_modes: [newest]
+
+# Exact URLs are verified regardless of search ranking. Keep the Joe Sánchez
+# listing here for one controlled smoke test; once it is saved in state it will
+# not alert again unless its price drops.
+manual_watch:
+  - url: "https://es.wallapop.com/item/botas-de-piel-joe-sanchez-1251525554"
+    query: "Joe Sanchez"
 
 hourly_queries:
   - Sendra
@@ -48,7 +62,7 @@ hourly_queries:
   - botas vaqueras
 
 rotating_query_batches:
-  - [Senda botas, Sandra botas, Toni Mora, Marlboro botas, Marboro botas, Joe Sanchez botas, José Sánchez botas]
+  - [Senda botas, Sandra botas, Toni Mora, Marlboro botas, Marboro botas, Joe Sanchez, Joe Sanchez botas, José Sánchez, José Sánchez botas]
   - [San Diego Boots, Montana botas, Callaghan botas, Johnny Bulls, Jonny Bull, Jhonny Bulls, Laredo boots]
   - [Calero botas, Valverde del Camino botas, Siete Leguas botas, 7 Leguas botas, Dog Jimmy botas, Buffalo botas]
   - [Termans botas, Dr Termans botas, Timothy botas, Bryan Boots, Go West boots, GoWest boots, Nocona boots, Nacona boots]
@@ -150,7 +164,6 @@ boot_terms:
   - botines
   - stivali
 
-# Obvious non-footwear collisions that appear in broad Wallapop searches.
 non_boot_terms:
   - libro
   - novela

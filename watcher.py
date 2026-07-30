@@ -45,6 +45,7 @@ class Discovery:
     image: str | None = None
     query: str = ""
     source: str = "dom"
+    position: int = 9999
 
 
 @dataclass
@@ -508,7 +509,7 @@ def discovery_from_object(obj: dict[str, Any], query: str) -> Discovery | None:
         image = str(first_image) if isinstance(first_image, str) else str(first(first_image, "url", "original", default="")) if isinstance(first_image, dict) else None
     elif isinstance(image_value, dict):
         image = str(first(image_value, "url", "original", default="")) or None
-    return Discovery(url=url, title=title, text=f"{title}\n{description}", price=price, image=image, query=query, source="json")
+    return Discovery(url=url, title=title, text=f"{title}\n{description}", price=price, image=image, query=query, source="json", position=9999)
 
 
 async def accept_cookies(page: Page) -> None:
@@ -580,7 +581,7 @@ async def collect_dom_discoveries(page: Page, query: str) -> list[Discovery]:
         """
     )
     output: list[Discovery] = []
-    for record in records:
+    for position, record in enumerate(records):
         url = canonical_url(str(record.get("href", "")))
         if not url:
             continue
@@ -595,14 +596,15 @@ async def collect_dom_discoveries(page: Page, query: str) -> list[Discovery]:
                 image=record.get("image"),
                 query=query,
                 source="dom",
+                position=position,
             )
         )
     return output
 
 
-async def search_query(page: Page, query: str, cfg: dict[str, Any]) -> list[Discovery]:
+async def search_query(page: Page, query: str, order_by: str, cfg: dict[str, Any]) -> list[Discovery]:
     settings = cfg["settings"]
-    captured: list[Discovery] = []
+    captured_json: list[Discovery] = []
     response_tasks: list[asyncio.Task[None]] = []
 
     async def inspect_response(response: Response) -> None:
@@ -616,7 +618,7 @@ async def search_query(page: Page, query: str, cfg: dict[str, Any]) -> list[Disc
             for obj in walk_json(payload):
                 candidate = discovery_from_object(obj, query)
                 if candidate:
-                    captured.append(candidate)
+                    captured_json.append(candidate)
         except Exception:
             return
 
@@ -624,36 +626,47 @@ async def search_query(page: Page, query: str, cfg: dict[str, Any]) -> list[Disc
         response_tasks.append(asyncio.create_task(inspect_response(response)))
 
     page.on("response", listener)
-    url = settings["search_url_template"].format(query=quote_plus(query))
+    url = settings["search_url_template"].format(query=quote_plus(query), order_by=order_by)
+    dom_results: list[Discovery] = []
     try:
         await page.goto(url, wait_until="domcontentloaded", timeout=int(settings["navigation_timeout_ms"]))
         await accept_cookies(page)
         await page.wait_for_timeout(int(settings["search_page_wait_ms"]))
-        # A small scroll triggers lazy-loaded cards without attempting to evade site controls.
-        await page.mouse.wheel(0, 1200)
-        await page.wait_for_timeout(700)
+        for _ in range(int(settings.get("search_scroll_rounds", 4))):
+            await page.mouse.wheel(0, 1400)
+            await page.wait_for_timeout(int(settings.get("search_scroll_wait_ms", 600)))
         body = await page.locator("body").inner_text(timeout=5000)
         title = await page.title()
         if blocked_page(body, title):
-            await save_debug(page, f"blocked_search_{query}")
-            raise RuntimeError(f"Wallapop blocked the search page for query: {query}")
-        captured.extend(await collect_dom_discoveries(page, query))
+            await save_debug(page, f"blocked_search_{query}_{order_by}")
+            raise RuntimeError(f"Wallapop blocked the search page for query: {query} ({order_by})")
+        dom_results = await collect_dom_discoveries(page, query)
         if response_tasks:
             await asyncio.gather(*response_tasks, return_exceptions=True)
     finally:
         page.remove_listener("response", listener)
 
+    # The visible DOM is the source of truth for search ordering. JSON responses
+    # can contain recommendations and unrelated objects, so only use them as a
+    # fallback after the visible cards.
     deduped: dict[str, Discovery] = {}
-    for item in captured:
+    for item in dom_results + captured_json:
         existing = deduped.get(item.url)
-        if existing is None or (existing.source == "dom" and item.source == "json"):
+        if existing is None:
             deduped[item.url] = item
-        elif existing:
-            existing.text = max((existing.text, item.text), key=len)
-            existing.title = existing.title or item.title
-            existing.price = existing.price if existing.price is not None else item.price
-            existing.image = existing.image or item.image
-    return list(deduped.values())[: int(settings["max_results_per_query"])]
+            continue
+        # Never replace a visible search card with a background JSON object.
+        if existing.source == "json" and item.source == "dom":
+            deduped[item.url] = item
+            existing = item
+        existing.text = max((existing.text, item.text), key=len)
+        existing.title = existing.title or item.title
+        existing.price = existing.price if existing.price is not None else item.price
+        existing.image = existing.image or item.image
+
+    results = list(deduped.values())
+    results.sort(key=lambda item: (0 if item.source == "dom" else 1, item.position, item.price if item.price is not None else 99999))
+    return results[: int(settings["max_results_per_query"])]
 
 
 async def seller_profile_link(page: Page) -> tuple[str | None, str]:
@@ -781,14 +794,22 @@ async def verify_listing(page: Page, discovery: Discovery, cfg: dict[str, Any]) 
     if contains_any(headline_text, cfg["excluded_terms"]):
         return None, "explicitly excluded Dr. Martens listing"
 
-    combined = f"{title}\n{description}\n{product_block}\n{discovery.title}\n{discovery.text}"
-    if not looks_relevant(combined, cfg):
+    # Do not let recommendation cards on the listing page contaminate the
+    # product's brand or size. Prefer the title, description and matching search
+    # card, then use the isolated product block only as a fallback.
+    core_text = f"{title}\n{description}\n{discovery.title}\n{discovery.text}"
+    relevance_text = f"{core_text}\n{product_block}"
+    if not looks_relevant(relevance_text, cfg):
         return None, "page is not a relevant boot listing"
-    size = extract_size(combined, set(settings["sizes"]))
+    size = extract_size(core_text, set(settings["sizes"])) or extract_size(product_block, set(settings["sizes"]))
     if size is None:
         return None, "EU size 40-45 could not be verified"
-    brand = detect_brand(combined, cfg["brand_aliases"])
-    is_exotic = contains_any(combined, cfg["exotic_terms"])
+    brand = (
+        detect_brand(f"{title}\n{discovery.title}", cfg["brand_aliases"])
+        or detect_brand(description, cfg["brand_aliases"])
+        or detect_brand(discovery.text, cfg["brand_aliases"])
+    )
+    is_exotic = contains_any(core_text, cfg["exotic_terms"])
     listing_age_hours, recency_text = extract_listing_recency(product_block or body)
 
     profile_url, seller_name = await seller_profile_link(page)
@@ -1066,6 +1087,49 @@ def discovery_priority(item: Discovery, state: dict[str, Any], cfg: dict[str, An
     )
 
 
+def exact_brand_query_match(item: Discovery | Listing, cfg: dict[str, Any]) -> bool:
+    query_brand = detect_brand(getattr(item, "query", ""), cfg["brand_aliases"])
+    item_brand = getattr(item, "brand", None)
+    if item_brand is None:
+        text = f"{getattr(item, 'title', '')} {getattr(item, 'text', '')}"
+        item_brand = detect_brand(text, cfg["brand_aliases"])
+    return query_brand is not None and item_brand == query_brand
+
+
+def select_for_verification(discoveries: Iterable[Discovery], state: dict[str, Any], cfg: dict[str, Any]) -> list[Discovery]:
+    """Reserve coverage for every search, then fill remaining slots globally.
+
+    The old implementation took only the globally best 60 results. With hundreds
+    of unseen cards, entire brands could receive zero direct-page verification.
+    """
+    settings = cfg["settings"]
+    limit = int(settings["max_listing_verifications_per_run"])
+    brand_reserve = int(settings.get("brand_query_reserved_verifications", 2))
+    generic_reserve = int(settings.get("generic_query_reserved_verifications", 1))
+    by_query: dict[str, list[Discovery]] = {}
+    for item in discoveries:
+        by_query.setdefault(item.query, []).append(item)
+    selected: list[Discovery] = []
+    selected_urls: set[str] = set()
+    for query, items in by_query.items():
+        reserve = brand_reserve if detect_brand(query, cfg["brand_aliases"]) else generic_reserve
+        ranked = sorted(items, key=lambda item: discovery_priority(item, state, cfg))
+        for item in ranked[:reserve]:
+            if item.url not in selected_urls:
+                selected.append(item)
+                selected_urls.add(item.url)
+                if len(selected) >= limit:
+                    return selected
+    for item in sorted(discoveries, key=lambda item: discovery_priority(item, state, cfg)):
+        if item.url in selected_urls:
+            continue
+        selected.append(item)
+        selected_urls.add(item.url)
+        if len(selected) >= limit:
+            break
+    return selected
+
+
 def price_recheck_discoveries(state: dict[str, Any], cfg: dict[str, Any]) -> list[Discovery]:
     records = list(state.get("seen", {}).values())
     if not records:
@@ -1128,36 +1192,62 @@ async def run() -> int:
         context = await create_context(browser, cfg)
         search_page = await context.new_page()
 
+        search_requests = 0
         for index, query in enumerate(queries, start=1):
-            try:
-                results = await search_query(search_page, query, cfg)
-                LOG.info("[%d/%d] %s: %d candidate links", index, len(queries), query, len(results))
-                for item in results:
-                    if not discovery_maybe_relevant(item, cfg):
-                        continue
-                    existing = discoveries.get(item.url)
-                    if existing is None or (existing.source == "dom" and item.source == "json"):
-                        discoveries[item.url] = item
-            except RuntimeError as exc:
-                search_failures += 1
-                LOG.error("%s", exc)
-                # A challenge/403 is unlikely to improve by hammering more searches.
-                if search_failures >= 2:
-                    LOG.error("Stopping this run after repeated blocking. No protection bypass is attempted.")
-                    break
-            except Exception as exc:
-                search_failures += 1
-                LOG.warning("Search failed for %s: %s", query, exc)
-            await search_page.wait_for_timeout(int(settings["polite_delay_ms"]) + random.randint(0, 350))
+            query_is_brand = detect_brand(query, cfg["brand_aliases"]) is not None
+            order_modes = settings.get("brand_search_order_modes", ["newest", "most_relevance"]) if query_is_brand else settings.get("generic_search_order_modes", ["newest"])
+            query_results: dict[str, Discovery] = {}
+            for order_by in order_modes:
+                search_requests += 1
+                try:
+                    results = await search_query(search_page, query, str(order_by), cfg)
+                    for item in results:
+                        if not discovery_maybe_relevant(item, cfg):
+                            continue
+                        existing = query_results.get(item.url)
+                        if existing is None or (existing.source == "json" and item.source == "dom"):
+                            query_results[item.url] = item
+                except RuntimeError as exc:
+                    search_failures += 1
+                    LOG.error("%s", exc)
+                    if search_failures >= 2:
+                        LOG.error("Stopping this run after repeated blocking. No protection bypass is attempted.")
+                        break
+                except Exception as exc:
+                    search_failures += 1
+                    LOG.warning("Search failed for %s (%s): %s", query, order_by, exc)
+                await search_page.wait_for_timeout(int(settings["polite_delay_ms"]) + random.randint(0, 350))
+            if search_failures >= 2:
+                break
+            ranked_query_results = sorted(query_results.values(), key=lambda item: discovery_priority(item, state, cfg))
+            audit = ", ".join(
+                f"{item_id_from_url(item.url)}:{item.title[:28]}:€{item.price:.0f}" for item in ranked_query_results[:3] if item.price is not None
+            )
+            LOG.info("[%d/%d] %s: %d candidates%s", index, len(queries), query, len(ranked_query_results), f" | top {audit}" if audit else "")
+            for item in ranked_query_results:
+                existing = discoveries.get(item.url)
+                if existing is None or (existing.source == "json" and item.source == "dom"):
+                    discoveries[item.url] = item
 
         await search_page.close()
+
+        # Optional exact URLs are useful as smoke tests and for especially
+        # valuable listings that must never depend on search ranking.
+        for entry in cfg.get("manual_watch", []):
+            if isinstance(entry, str):
+                raw_url, query = entry, "manual watch"
+            else:
+                raw_url = str(entry.get("url", ""))
+                query = str(entry.get("query", "manual watch"))
+            url = canonical_url(raw_url)
+            if url:
+                discoveries[url] = Discovery(url=url, query=query, source="manual", position=-1)
 
         # Add a rotating set of already-seen listings so real price changes are detected.
         for item in price_recheck_discoveries(state, cfg):
             discoveries.setdefault(item.url, item)
 
-        ordered = sorted(discoveries.values(), key=lambda item: discovery_priority(item, state, cfg))
-        ordered = ordered[: int(settings["max_listing_verifications_per_run"])]
+        ordered = select_for_verification(discoveries.values(), state, cfg)
         LOG.info("Verifying %d direct listing pages", len(ordered))
 
         listing_page = await context.new_page()
@@ -1188,6 +1278,23 @@ async def run() -> int:
 
             qualifies, median, reason = qualifies_as_bargain(listing, state, cfg)
             rules_pass, rule_reason = seller_and_recency_pass(listing, is_price_drop=is_price_drop, cfg=cfg)
+            fallback_alert = (
+                bool(settings.get("allow_unverified_exact_brand_bargains", True))
+                and is_new
+                and qualifies
+                and listing.active
+                and listing.purchasable
+                and listing.brand is not None
+                and exact_brand_query_match(listing, cfg)
+                and rule_reason in {
+                    "listing recency could not be verified",
+                    "seller activity could not be verified",
+                    f"listing is older than {float(settings['max_listing_age_hours']):.0f} hours",
+                }
+            )
+            if fallback_alert:
+                rules_pass = True
+                rule_reason = "newly detected exact-brand bargain; recency/seller activity unverified"
             should_alert = qualifies and rules_pass and (is_new or is_price_drop)
 
             LOG.info(
@@ -1201,7 +1308,7 @@ async def run() -> int:
                 is_price_drop,
                 qualifies,
                 rules_pass,
-                "verified" if rules_pass else rule_reason,
+                rule_reason if fallback_alert else ("verified" if rules_pass else rule_reason),
             )
 
             if should_alert and not silent_bootstrap:
@@ -1232,7 +1339,8 @@ async def run() -> int:
         LOG.info("Verification rejection summary: %s", summary)
 
     LOG.info(
-        "Finished. Searches=%d failures=%d discovered=%d verified=%d alerts=%d bootstrap_silent=%s",
+        "Finished. SearchRequests=%d queries=%d failures=%d discovered=%d verified=%d alerts=%d bootstrap_silent=%s",
+        search_requests,
         len(queries),
         search_failures,
         len(discoveries),
